@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import './Normalize.css';
 import './App.css';
@@ -20,10 +16,13 @@ function App() {
         <Header />
         <div>
           <Switch>
-            <Route exact path="/"><Home /></Route>
-            <Route exact path="/search"><Search /></Route>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route exact path="/search">
+              <Search />
+            </Route>
           </Switch>
-
         </div>
       </Router>
     </div>
