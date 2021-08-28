@@ -57,4 +57,5 @@ const GlobalStyle = createGlobalStyle`
     color: ${(props) => props.theme.color.text};
   }
   
-`
+`;
+export default GlobalStyle;
