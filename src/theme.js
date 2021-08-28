@@ -1,19 +1,20 @@
 const theme = {
-    color: {
-        text: '#93918f',
+  color: {
+    text: '#93918f',
+  },
+  font: {
+    family: {
+      default: '"Montserrat", sans-serif',
+      headline: '"Bitter", serif',
     },
-    font: {
-        family: {
-            default: '"Montserrat", sans-serif',
-            headline: '"Bitter", serif',
-        },
-        size: {
-            default: '16px',
-        },
-        lineHeight: {
-            default: 1.69,
-        },
+    size: {
+      default: '16px'
+      ,
     },
+    lineHeight: {
+      default: 1.69,
+    },
+  },
 };
 
 export default theme;

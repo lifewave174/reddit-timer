@@ -3,12 +3,13 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Normalize } from 'styled-normalize';
 import { ThemeProvider } from 'styled-components';
 
-import theme from './theme'
+import theme from './theme';
 import GlobalStyle from './GlobalStyle';
 
 import Header from './components/Header';
 import Search from './components/Search';
 import Home from './components/Home';
+import NoMatch from './components/NoMatch';
 
 function App() {
   return (
