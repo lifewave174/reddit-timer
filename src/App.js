@@ -1,8 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-
-import './Normalize.css';
-import './App.css';
+import { Normalize } from 'styled-normalize'
 
 import Header from './components/Header';
 import Search from './components/Search';
@@ -14,16 +12,17 @@ function App() {
       App Placeholder
       <Router>
         <Header />
-        <div>
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route exact path="/search">
-              <Search />
-            </Route>
-          </Switch>
-        </div>
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/search">
+            <Search />
+          </Route>
+          <Route>
+            <NoMatch />
+          </Route>
+        </Switch>
       </Router>
     </div>
   );
