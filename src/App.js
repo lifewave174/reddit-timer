@@ -12,28 +12,27 @@ import Home from './components/Home';
 import NoMatch from './components/NoMatch';
 
 function App() {
-  return (
-    <div className="App">
-      <ThemeProvider theme={theme}>
-        <Router>
-          <Normalize />
-          <GlobalStyle />
-          <Header />
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route path="/search">
-              <Search />
-            </Route>
-            <Route>
-              <NoMatch />
-            </Route>
-          </Switch>
-        </Router>
-      </ThemeProvider>
-    </div>
-  );
+    return (
+        <div className="App">
+            <ThemeProvider theme={theme}>
+                <Router>
+                    <Normalize />
+                    <GlobalStyle />
+                    <Switch>
+                        <Route exact path="/">
+                            <Home />
+                        </Route>
+                        <Route path="/search">
+                            <Search />
+                        </Route>
+                        <Route>
+                            <NoMatch />
+                        </Route>
+                    </Switch>
+                </Router>
+            </ThemeProvider>
+        </div>
+    );
 }
 
 export default App;
