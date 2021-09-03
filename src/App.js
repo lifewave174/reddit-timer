@@ -18,6 +18,7 @@ function App() {
                 <Router>
                     <Normalize />
                     <GlobalStyle />
+                    <Header />
                     <Switch>
                         <Route exact path="/">
                             <Home />

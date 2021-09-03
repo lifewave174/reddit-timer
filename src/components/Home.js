@@ -1,12 +1,8 @@
 import React from 'react';
 import Header from './Header';
 
-const Home = ({ theme }) => {
-    return (
-        <div>
-            <Header theme={theme} />
-        </div>
-    );
+const Home = () => {
+    return <div></div>;
 };
 
 export default Home;
