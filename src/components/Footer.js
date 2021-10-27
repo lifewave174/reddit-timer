@@ -1,14 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ReactComponent as Logo } from '../assets/logo.svg';
+import { ReactComponent as Logo } from '../assets/sign.svg';
 
 const FooterWrapper = styled.div`
     height: 100px;
-    position: absolute;
-    bottom: 0;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 `;
 const FooterSection = styled.div``;
 

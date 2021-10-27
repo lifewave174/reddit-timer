@@ -7,6 +7,7 @@ import theme from './theme';
 import GlobalStyle from './GlobalStyle';
 
 import Header from './components/Header';
+import Main from './components/Main';
 import Search from './components/Search';
 import Home from './components/Home';
 import NoMatch from './components/NoMatch';
@@ -14,27 +15,29 @@ import Footer from './components/Footer';
 
 function App() {
     return (
-        <div className="App">
+        <>
             <ThemeProvider theme={theme}>
                 <Router>
                     <Normalize />
                     <GlobalStyle />
                     <Header />
                     <Switch>
-                        <Route exact path="/">
-                            <Home />
-                        </Route>
-                        <Route path="/search">
-                            <Search />
-                        </Route>
-                        <Route>
-                            <NoMatch />
-                        </Route>
+                        <Main>
+                            <Route exact path="/">
+                                <Home />
+                            </Route>
+                            <Route path="/search">
+                                <Search />
+                            </Route>
+                            <Route>
+                                <NoMatch />
+                            </Route>
+                        </Main>
                     </Switch>
                     <Footer />
                 </Router>
             </ThemeProvider>
-        </div>
+        </>
     );
 }
 
