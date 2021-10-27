@@ -6,12 +6,12 @@ import { ThemeProvider } from 'styled-components';
 import theme from './theme';
 import GlobalStyle from './GlobalStyle';
 
-import Header from './components/Header';
-import Main from './components/Main';
+import Header from './components/common/Header';
+import Main from './components/common/Main';
 import Search from './components/Search';
 import Home from './components/Home';
 import NoMatch from './components/NoMatch';
-import Footer from './components/Footer';
+import Footer from './components/common/Footer';
 
 function App() {
     return (
