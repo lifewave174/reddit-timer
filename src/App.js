@@ -2,16 +2,16 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Normalize } from 'styled-normalize';
 import { ThemeProvider } from 'styled-components';
+import { MainWrapper } from './styling/sharedstyles';
 
-import theme from './theme';
-import GlobalStyle from './GlobalStyle';
+import theme from './styling/theme';
+import GlobalStyle from './styling/GlobalStyle';
 
-import Header from './components/common/Header';
-import Main from './components/common/Main';
+import Header from './components/Header';
 import Search from './components/Search';
 import Home from './components/Home';
 import NoMatch from './components/NoMatch';
-import Footer from './components/common/Footer';
+import Footer from './components/Footer';
 
 function App() {
     return (
@@ -22,7 +22,7 @@ function App() {
                     <GlobalStyle />
                     <Header />
                     <Switch>
-                        <Main>
+                        <MainWrapper>
                             <Route exact path="/">
                                 <Home />
                             </Route>
@@ -32,7 +32,7 @@ function App() {
                             <Route>
                                 <NoMatch />
                             </Route>
-                        </Main>
+                        </MainWrapper>
                     </Switch>
                     <Footer />
                 </Router>

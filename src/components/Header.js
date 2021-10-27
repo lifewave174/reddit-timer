@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { StyledLink } from '../styling/sharedstyles';
 import { ReactComponent as Logo } from '../assets/logo.svg';
 
 const HeaderWrapper = styled.div`
@@ -16,11 +17,6 @@ const Nav = styled.nav`
     display: flex;
     justify-content: space-between;
     align-items: center;
-`;
-
-const StyledLink = styled(Link)`
-    text-decoration: none;
-    color: ${props => props.theme.color.text};
 `;
 
 const Header = () => {

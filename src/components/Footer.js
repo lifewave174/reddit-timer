@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { StyledLink } from '../styling/sharedstyles';
+import { Link } from 'react-router-dom';
 import { ReactComponent as Logo } from '../assets/sign.svg';
 
 const FooterWrapper = styled.div`
@@ -8,16 +10,15 @@ const FooterWrapper = styled.div`
     display: flex;
     justify-content: space-around;
 `;
-const FooterSection = styled.div``;
 
 const Footer = () => {
     return (
         <FooterWrapper>
-            <FooterSection>profy.dev</FooterSection>
-            <FooterSection>
+            <StyledLink>profy.dev</StyledLink>
+            <Link>
                 <Logo />
-            </FooterSection>
-            <FooterSection>Terms & Privacy</FooterSection>
+            </Link>
+            <StyledLink>Terms & Privacy</StyledLink>
         </FooterWrapper>
     );
 };
