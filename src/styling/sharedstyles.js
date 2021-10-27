@@ -6,8 +6,13 @@ const StyledLink = styled(Link)`
     color: ${props => props.theme.color.text};
 `;
 
+const StyledHref = styled.a`
+    text-decoration: none;
+    color: ${props => props.theme.color.text};
+`;
+
 const MainWrapper = styled.section`
     flex-grow: 1;
 `;
 
-export { StyledLink, MainWrapper };
+export { StyledLink, MainWrapper, StyledHref };

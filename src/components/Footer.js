@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { StyledLink } from '../styling/sharedstyles';
+import { StyledLink, StyledHref } from '../styling/sharedstyles';
 import { Link } from 'react-router-dom';
 import { ReactComponent as Logo } from '../assets/sign.svg';
 
@@ -14,11 +14,13 @@ const FooterWrapper = styled.div`
 const Footer = () => {
     return (
         <FooterWrapper>
-            <StyledLink>profy.dev</StyledLink>
-            <Link>
+            <StyledHref href="https://ooloo.io/employers" target="_blank">
+                profy.dev
+            </StyledHref>
+            <Link to="/">
                 <Logo />
             </Link>
-            <StyledLink>Terms & Privacy</StyledLink>
+            <StyledLink to="/terms">Terms & Privacy</StyledLink>
         </FooterWrapper>
     );
 };
