@@ -10,6 +10,7 @@ import Header from './components/Header';
 import Search from './components/Search';
 import Home from './components/Home';
 import NoMatch from './components/NoMatch';
+import Footer from './components/Footer';
 
 function App() {
     return (
@@ -30,6 +31,7 @@ function App() {
                             <NoMatch />
                         </Route>
                     </Switch>
+                    <Footer />
                 </Router>
             </ThemeProvider>
         </div>
