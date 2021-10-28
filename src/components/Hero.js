@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Button } from '../styling/sharedstyles';
 import heroImage from '../assets/table.png';
 
 const Section = styled.section`
@@ -14,6 +15,7 @@ const TitleSection = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height
 `;
 
 const HeroImage = styled.div`
@@ -27,7 +29,18 @@ const H1 = styled.h1`
     font-family: ${props => props.theme.font.family.headline};
     color: ${props => props.theme.color.secondary};
     font-weight: 400;
-    font-size: 38px;
+    font-size: 2rem;
+    line-height: 45.6px;
+    margin: 10px 0;
+`;
+
+const H3 = styled.h3`
+    font-family: ${props => props.theme.font.family.default};
+    color: ${props => props.theme.color.primary};
+    font-weight: 400;
+    line-height: 19.5px
+    font-size: 1rem;
+    margin: 10px 0;
 `;
 
 const Hero = () => {
@@ -35,13 +48,13 @@ const Hero = () => {
         <Section>
             <TitleSection>
                 <H1>No reactions to your reddit posts?</H1>
-                <h3>
+                <H3>
                     Great timing, great results! Find the best time to post on
                     your subreddit
-                </h3>
+                </H3>
             </TitleSection>
-            <button>Show me the best time</button>
-            <p>r/javascript</p>
+            <Button>Show me the best time</Button>
+            <p style={{ marginBottom: '27px' }}>r/javascript</p>
             <HeroImage />
         </Section>
     );

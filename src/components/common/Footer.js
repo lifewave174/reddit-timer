@@ -1,15 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
-import { StyledLink } from '../styling/sharedstyles';
+import { StyledLink } from '../../styling/sharedstyles';
 import { Link } from 'react-router-dom';
-import { ReactComponent as Logo } from '../assets/sign.svg';
+import { ReactComponent as Logo } from '../../assets/sign.svg';
 
 const FooterWrapper = styled.div`
     height: 100px;
     width: 100%;
     margin-top: 10px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     > * {
         display: flex;
