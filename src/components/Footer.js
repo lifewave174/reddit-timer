@@ -1,26 +1,44 @@
 import React from 'react';
 import styled from 'styled-components';
-import { StyledLink, StyledHref } from '../styling/sharedstyles';
+import { StyledLink } from '../styling/sharedstyles';
 import { Link } from 'react-router-dom';
 import { ReactComponent as Logo } from '../assets/sign.svg';
 
 const FooterWrapper = styled.div`
     height: 100px;
     width: 100%;
+    margin-top: 10px;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
+    > * {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 `;
+
+const hasFlex = {
+    flex: '1',
+};
 
 const Footer = () => {
     return (
         <FooterWrapper>
-            <StyledHref href="https://ooloo.io/employers" target="_blank">
+            <StyledLink
+                as="a"
+                href="https://ooloo.io/employers"
+                target="_blank"
+                style={hasFlex}
+            >
                 profy.dev
-            </StyledHref>
+            </StyledLink>
             <Link to="/">
                 <Logo />
             </Link>
-            <StyledLink to="/terms">Terms & Privacy</StyledLink>
+            <StyledLink to="/terms" style={hasFlex}>
+                Terms & Privacy
+            </StyledLink>
         </FooterWrapper>
     );
 };

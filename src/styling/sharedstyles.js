@@ -3,16 +3,11 @@ import { Link } from 'react-router-dom';
 
 const StyledLink = styled(Link)`
     text-decoration: none;
-    color: ${props => props.theme.color.text};
-`;
-
-const StyledHref = styled.a`
-    text-decoration: none;
-    color: ${props => props.theme.color.text};
+    color: ${props => props.theme.color.primary};
 `;
 
 const MainWrapper = styled.section`
     flex-grow: 1;
 `;
 
-export { StyledLink, MainWrapper, StyledHref };
+export { StyledLink, MainWrapper };

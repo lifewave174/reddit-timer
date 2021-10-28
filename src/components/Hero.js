@@ -18,13 +18,14 @@ const TitleSection = styled.div`
 
 const HeroImage = styled.div`
     background-image: url(${heroImage});
+    background-position: center;
     height: 332px;
-    width: 1114px;
+    min-width: 1114px;
 `;
 
 const H1 = styled.h1`
     font-family: ${props => props.theme.font.family.headline};
-    color: #000000;
+    color: ${props => props.theme.color.secondary};
     font-weight: 400;
     font-size: 38px;
 `;
