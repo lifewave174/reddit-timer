@@ -49,14 +49,18 @@ const GlobalStyle = createGlobalStyle`
       url("/fonts/Bitter-Regular.woff") format("woff");
     }
 
+    * {
+    box-sizing: border-box;
+    }
 
-  body {
+  #page-container {   
     font-family: ${props => props.theme.font.family.default};
     font-size: ${props => props.theme.font.size.default};
     line-height: ${props => props.theme.font.lineHeight.default};
     color: ${props => props.theme.color.text};
-    padding: 0px 80px;
-  }
-  
+    padding: ${props => props.theme.padding.default};
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 `;
 export default GlobalStyle;

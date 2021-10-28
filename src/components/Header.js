@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { StyledLink } from '../styling/sharedstyles';
 import { ReactComponent as Logo } from '../assets/logo.svg';
 
-const Wrapper = styled.div`
+const HeaderWrapper = styled.div`
     width: 100%;
     height: 100px;
     display: flex;
@@ -18,14 +19,9 @@ const Nav = styled.nav`
     align-items: center;
 `;
 
-const StyledLink = styled(Link)`
-    text-decoration: none;
-    color: ${props => props.theme.color.text};
-`;
-
 const Header = () => {
     return (
-        <Wrapper>
+        <HeaderWrapper>
             <Link to="/">
                 <Logo />
             </Link>
@@ -34,7 +30,7 @@ const Header = () => {
                 <StyledLink to="#how-it-works">How it works</StyledLink>
                 <StyledLink to="#about">About</StyledLink>
             </Nav>
-        </Wrapper>
+        </HeaderWrapper>
     );
 };
 

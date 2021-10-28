@@ -14,6 +14,10 @@ const theme = {
             default: 1.69,
         },
     },
+
+    padding: {
+        default: '0 80px',
+    },
 };
 
 export default theme;
