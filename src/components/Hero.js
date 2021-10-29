@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import { Button } from '../styling/sharedstyles';
 import heroImage from '../assets/table.png';
 
@@ -15,7 +16,6 @@ const TitleSection = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height
 `;
 
 const HeroImage = styled.div`
@@ -43,6 +43,10 @@ const H3 = styled.h3`
     margin: 10px 0;
 `;
 
+const P = styled.p`
+    margin-bottom: 27px;
+`;
+
 const Hero = () => {
     return (
         <Section>
@@ -53,9 +57,11 @@ const Hero = () => {
                     your subreddit
                 </H3>
             </TitleSection>
-            <Button>Show me the best time</Button>
-            <p style={{ marginBottom: '27px' }}>r/javascript</p>
-            <HeroImage />
+            <Button to="/search">Show me the best time</Button>
+            <P>r/javascript</P>
+            <Link to="/search">
+                <HeroImage />
+            </Link>
         </Section>
     );
 };

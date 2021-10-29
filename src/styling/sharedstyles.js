@@ -10,7 +10,7 @@ const MainWrapper = styled.section`
     flex-grow: 1;
 `;
 
-const Button = styled.button`
+const Button = styled(Link)`
     background-color: #fdb755;
     color: white;
     text-transform: uppercase;
@@ -19,6 +19,7 @@ const Button = styled.button`
     border: 0px;
     border-radius: 5px;
     margin: 26px 0px;
+    text-decoration: none;
 `;
 
 export { StyledLink, MainWrapper, Button };
