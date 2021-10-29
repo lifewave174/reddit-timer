@@ -1,15 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { Button } from '../styling/sharedstyles';
+import { Button, Section } from '../styling/sharedstyles';
 import heroImage from '../assets/table.png';
-
-const Section = styled.section`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-`;
 
 const TitleSection = styled.div`
     display: flex;

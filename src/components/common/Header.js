@@ -19,6 +19,8 @@ const Nav = styled.nav`
     justify-content: space-between;
     align-items: center;
     text-align: center;
+    font-size: 0.95rem;
+    padding: 0 5px;
 `;
 
 const Header = () => {

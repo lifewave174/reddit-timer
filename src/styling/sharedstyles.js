@@ -1,6 +1,15 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+const Section = styled.section`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 30px 5%;
+`;
+
 const StyledLink = styled(Link)`
     text-decoration: none;
     color: ${props => props.theme.color.primary};
@@ -22,4 +31,4 @@ const Button = styled(Link)`
     text-decoration: none;
 `;
 
-export { StyledLink, MainWrapper, Button };
+export { StyledLink, MainWrapper, Button, Section };
