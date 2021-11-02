@@ -17,7 +17,7 @@ const HeroImage = styled.div`
     background-image: url(${heroImage});
     background-position: center;
     height: 332px;
-    min-width: 1114px;
+    max-width: 1114px;
 `;
 
 const H1 = styled.h1`
