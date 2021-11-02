@@ -24,7 +24,7 @@ const Info = () => {
     return (
         <Section>
             <Infos>
-                <H2>How it works</H2>
+                <H2 id="how-it-works">How it works</H2>
                 <ul>
                     <li>
                         We find 500 top posts from the past year for a subreddit
@@ -37,7 +37,7 @@ const Info = () => {
                 </ul>
             </Infos>
             <Infos>
-                <H2>About</H2>
+                <H2 id="about">About</H2>
                 <p>
                     The app was created during a course on profy.dev with the
                     goal to implement a pixel-perfect real-world application

@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+
+import { defaultSubreddit } from '../../constants';
 import { StyledLink } from '../../styling/sharedstyles';
 import { ReactComponent as Logo } from '../../assets/logo.svg';
 
@@ -30,9 +32,15 @@ const Header = () => {
                 <Logo />
             </Link>
             <Nav>
-                <StyledLink to="/search">Search</StyledLink>
-                <StyledLink to="#how-it-works">How it works</StyledLink>
-                <StyledLink to="#about">About</StyledLink>
+                <StyledLink to={`/search/${defaultSubreddit}`}>
+                    Search
+                </StyledLink>
+                <StyledLink as="a" href="#how-it-works">
+                    How it works
+                </StyledLink>
+                <StyledLink as="a" href="#about">
+                    About
+                </StyledLink>
             </Nav>
         </HeaderWrapper>
     );

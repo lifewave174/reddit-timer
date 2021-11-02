@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+
+import { defaultSubreddit } from '../constants';
 import { Button, Section } from '../styling/sharedstyles';
 import heroImage from '../assets/table.png';
 
@@ -50,9 +52,11 @@ const Hero = () => {
                     your subreddit
                 </H3>
             </TitleSection>
-            <Button to="/search">Show me the best time</Button>
-            <P>r/javascript</P>
-            <Link to="/search">
+            <Button to={`/search/${defaultSubreddit}`}>
+                Show me the best time
+            </Button>
+            <P>{defaultSubreddit}</P>
+            <Link to={`/search/${defaultSubreddit}`}>
                 <HeroImage />
             </Link>
         </Section>
