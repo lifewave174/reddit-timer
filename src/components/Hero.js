@@ -4,20 +4,12 @@ import { Link } from 'react-router-dom';
 
 import { defaultSubreddit } from '../constants';
 import { Button, Section } from '../styling/sharedstyles';
-import heroImage from '../assets/table.png';
 
 const TitleSection = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-`;
-
-const HeroImage = styled.div`
-    background-image: url(${heroImage});
-    background-position: center;
-    height: 332px;
-    max-width: 1114px;
 `;
 
 const H1 = styled.h1`
@@ -42,6 +34,9 @@ const P = styled.p`
     margin-bottom: 27px;
 `;
 
+const HeroImage = styled.img`
+    max-width: 100%;
+`;
 const Hero = () => {
     return (
         <Section>
@@ -57,7 +52,10 @@ const Hero = () => {
             </Button>
             <P>{defaultSubreddit}</P>
             <Link to={`/search/${defaultSubreddit}`}>
-                <HeroImage />
+                <HeroImage
+                    src="/images/hero-2x.png"
+                    srcSet="/images/hero-1x.png, /images/hero-2x.png, /images/hero-3x.png"
+                ></HeroImage>
             </Link>
         </Section>
     );
