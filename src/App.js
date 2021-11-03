@@ -7,7 +7,7 @@ import { MainWrapper } from './styling/sharedstyles';
 import theme from './styling/theme';
 import GlobalStyle from './styling/GlobalStyle';
 
-import Header from './components/Header';
+import Header from './components/common/Header';
 import Search from './components/Search';
 import Home from './components/Home';
 import NoMatch from './components/NoMatch';

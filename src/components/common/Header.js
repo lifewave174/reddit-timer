@@ -10,10 +10,11 @@ const HeaderWrapper = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 2vw;
 `;
 
 const Nav = styled.nav`
-    width: 261px;
+    width: 300px;
     display: flex;
     justify-content: space-between;
     align-items: center;
