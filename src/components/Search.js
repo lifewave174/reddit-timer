@@ -39,7 +39,7 @@ const Search = () => {
         });
     };
 
-    const onSubmit = async e => {
+    const onSubmit = e => {
         e.preventDefault();
         history.push(`/search/r/${topPosts.subreddit}`);
     };
