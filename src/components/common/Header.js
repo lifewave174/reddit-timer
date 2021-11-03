@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { StyledLink } from '../styling/sharedstyles';
-import { ReactComponent as Logo } from '../assets/logo.svg';
+
+import { defaultSubreddit } from '../../constants';
+import { StyledLink } from '../../styling/sharedstyles';
+import { ReactComponent as Logo } from '../../assets/logo.svg';
 
 const HeaderWrapper = styled.div`
     width: 100%;
@@ -18,6 +20,10 @@ const Nav = styled.nav`
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    text-align: center;
+    font-size: 0.95rem;
+    padding: 0 5px;
 `;
 
 const Header = () => {
@@ -27,9 +33,15 @@ const Header = () => {
                 <Logo />
             </Link>
             <Nav>
-                <StyledLink to="/search">Search</StyledLink>
-                <StyledLink to="#how-it-works">How it works</StyledLink>
-                <StyledLink to="#about">About</StyledLink>
+                <StyledLink to={`/search/${defaultSubreddit}`}>
+                    Search
+                </StyledLink>
+                <StyledLink as="a" href="#how-it-works">
+                    How it works
+                </StyledLink>
+                <StyledLink as="a" href="#about">
+                    About
+                </StyledLink>
             </Nav>
         </HeaderWrapper>
     );

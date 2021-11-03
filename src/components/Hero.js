@@ -2,28 +2,16 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import { Button } from '../styling/sharedstyles';
-import heroImage from '../assets/table.png';
 
-const Section = styled.section`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-`;
+import { defaultSubreddit } from '../constants';
+import { Button, Section } from '../styling/sharedstyles';
+
 
 const TitleSection = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-`;
-
-const HeroImage = styled.div`
-    background-image: url(${heroImage});
-    background-position: center;
-    height: 332px;
-    min-width: 1114px;
 `;
 
 const H1 = styled.h1`
@@ -48,6 +36,10 @@ const P = styled.p`
     margin-bottom: 27px;
 `;
 
+
+const HeroImage = styled.img`
+    max-width: 100%;
+`;
 const Hero = () => {
     return (
         <Section>
@@ -58,10 +50,16 @@ const Hero = () => {
                     your subreddit
                 </H3>
             </TitleSection>
-            <Button to="/search">Show me the best time</Button>
-            <P>r/javascript</P>
-            <Link to="/search">
-                <HeroImage />
+            <Button to={`/search/${defaultSubreddit}`}>
+                Show me the best time
+            </Button>
+            <P>{defaultSubreddit}</P>
+            <Link to={`/search/${defaultSubreddit}`}>
+                <HeroImage
+                    src="/images/hero-2x.png"
+                    srcSet="/images/hero-1x.png, /images/hero-2x.png, /images/hero-3x.png"
+                ></HeroImage>
+
             </Link>
         </Section>
     );

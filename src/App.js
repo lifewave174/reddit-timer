@@ -10,8 +10,8 @@ import GlobalStyle from './styling/GlobalStyle';
 import Header from './components/common/Header';
 import Search from './components/Search';
 import Home from './components/Home';
-import NoMatch from './components/NoMatch';
-import Footer from './components/Footer';
+import NoMatch from './components/common/NoMatch';
+import Footer from './components/common/Footer';
 
 function App() {
     return (

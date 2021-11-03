@@ -1,9 +1,17 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+const Section = styled.section`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 30px 5%;
+`;
+
 const StyledLink = styled(Link)`
     text-decoration: none;
-<<<<<<< HEAD
     color: ${props => props.theme.color.primary};
 `;
 
@@ -23,19 +31,4 @@ const Button = styled(Link)`
     text-decoration: none;
 `;
 
-export { StyledLink, MainWrapper, Button };
-=======
-    color: ${props => props.theme.color.text};
-`;
-
-const StyledHref = styled.a`
-    text-decoration: none;
-    color: ${props => props.theme.color.text};
-`;
-
-const MainWrapper = styled.section`
-    flex-grow: 1;
-`;
-
-export { StyledLink, MainWrapper, StyledHref };
->>>>>>> main
+export { StyledLink, MainWrapper, Button, Section };

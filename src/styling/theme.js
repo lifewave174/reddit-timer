@@ -17,11 +17,8 @@ const theme = {
     },
 
     padding: {
-<<<<<<< HEAD:src/styling/theme.js
+
         default: '0 2vw',
-=======
-        default: '0 80px',
->>>>>>> main:src/theme.js
     },
 };
 
