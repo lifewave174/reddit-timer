@@ -17,6 +17,7 @@ const theme = {
     },
 
     padding: {
+
         default: '0 2vw',
     },
 };

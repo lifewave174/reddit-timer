@@ -2,8 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+
 import { defaultSubreddit } from '../constants';
 import { Button, Section } from '../styling/sharedstyles';
+
 
 const TitleSection = styled.div`
     display: flex;
@@ -34,6 +36,7 @@ const P = styled.p`
     margin-bottom: 27px;
 `;
 
+
 const HeroImage = styled.img`
     max-width: 100%;
 `;
@@ -56,6 +59,7 @@ const Hero = () => {
                     src="/images/hero-2x.png"
                     srcSet="/images/hero-1x.png, /images/hero-2x.png, /images/hero-3x.png"
                 ></HeroImage>
+
             </Link>
         </Section>
     );
