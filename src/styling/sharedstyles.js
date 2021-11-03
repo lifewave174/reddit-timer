@@ -31,4 +31,13 @@ const Button = styled(Link)`
     text-decoration: none;
 `;
 
-export { StyledLink, MainWrapper, Button, Section };
+const H1 = styled.h1`
+    font-family: ${props => props.theme.font.family.headline};
+    color: ${props => props.theme.color.secondary};
+    font-weight: 400;
+    font-size: 2rem;
+    line-height: 45.6px;
+    margin: 10px 0;
+`;
+
+export { StyledLink, MainWrapper, Button, Section, H1 };
