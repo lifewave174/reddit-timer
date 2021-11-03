@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { StyledLink } from '../../styling/sharedstyles';
-import { ReactComponent as Logo } from '../../assets/logo.svg';
+import { StyledLink } from '../styling/sharedstyles';
+import { ReactComponent as Logo } from '../assets/logo.svg';
 
 const HeaderWrapper = styled.div`
     width: 100%;
@@ -18,7 +18,6 @@ const Nav = styled.nav`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    text-align: center;
 `;
 
 const Header = () => {

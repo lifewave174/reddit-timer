@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 const StyledLink = styled(Link)`
     text-decoration: none;
+<<<<<<< HEAD
     color: ${props => props.theme.color.primary};
 `;
 
@@ -23,3 +24,18 @@ const Button = styled(Link)`
 `;
 
 export { StyledLink, MainWrapper, Button };
+=======
+    color: ${props => props.theme.color.text};
+`;
+
+const StyledHref = styled.a`
+    text-decoration: none;
+    color: ${props => props.theme.color.text};
+`;
+
+const MainWrapper = styled.section`
+    flex-grow: 1;
+`;
+
+export { StyledLink, MainWrapper, StyledHref };
+>>>>>>> main

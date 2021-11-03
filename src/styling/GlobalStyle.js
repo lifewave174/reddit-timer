@@ -57,7 +57,11 @@ const GlobalStyle = createGlobalStyle`
     font-family: ${props => props.theme.font.family.default};
     font-size: ${props => props.theme.font.size.default};
     line-height: ${props => props.theme.font.lineHeight.default};
+<<<<<<< HEAD:src/styling/GlobalStyle.js
     color: ${props => props.theme.color.primary};
+=======
+    color: ${props => props.theme.color.text};
+>>>>>>> main:src/GlobalStyle.js
     padding: ${props => props.theme.padding.default};
     display: flex;
     flex-direction: column;
