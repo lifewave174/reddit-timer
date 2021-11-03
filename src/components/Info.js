@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Section } from '../styling/sharedstyles';
 
-const Infos = styled.div`
+const Infos = styled.article`
     width: 100%;
     display: flex;
     align-items: center;
