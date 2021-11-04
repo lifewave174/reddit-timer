@@ -38,7 +38,7 @@ const Hero = () => {
                     your subreddit
                 </H3>
             </TitleSection>
-            <Button to={`/search/r/${defaultSubreddit}`}>
+            <Button as={Link} to={`/search/r/${defaultSubreddit}`}>
                 Show me the best time
             </Button>
             <P>r/{defaultSubreddit}</P>

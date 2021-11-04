@@ -9,19 +9,15 @@ const SearchPage = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    width: auto;
 `;
 
-const SubmitButton = styled.input`
-    background-color: #fdb755;
-    color: white;
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    padding: 8px 11px;
-    border: 0px;
-    border-radius: 5px;
-    margin: 26px 0px;
-    text-decoration: none;
+const Input = styled.input`
+    border: 1px solid #e6e6e6;
+    border-radius: 1px;
+    height: 36px;
+    width: 370px;
+    margin: 10px;
 `;
 
 const Search = () => {
@@ -49,12 +45,12 @@ const Search = () => {
             <H1>Find the best time for a subreddit</H1>
             <form onSubmit={onSubmit}>
                 r/
-                <input
+                <Input
                     type="text"
                     value={topPosts.subreddit}
                     onChange={onChange}
-                ></input>
-                <SubmitButton type="submit" value="search" />
+                ></Input>
+                <Button>Search</Button>
             </form>
         </SearchPage>
     );
