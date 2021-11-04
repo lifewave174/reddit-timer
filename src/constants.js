@@ -1,1 +1,1 @@
-export const defaultSubreddit = `r/javascript`;
+export const defaultSubreddit = `javascript`;
