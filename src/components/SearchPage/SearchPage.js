@@ -28,7 +28,15 @@ const SearchPage = () => {
         const url = `https://www.reddit.com/r/${postsSearch.subreddit}/top.json?t=${postsSearch.year}&limit=${postsSearch.limit}`;
         fetch(url)
             .then(handleResponse)
-            .then(_topPosts => setTopPosts(_topPosts), setLoading(false))
+            .then(_topPosts => {
+                let apiData = [];
+                for (let post of _topPosts) {
+                    apiData.push(post.data.title);
+                }
+                setTopPosts(apiData);
+                console.log(topPosts);
+            })
+            .then(() => setLoading(false))
             .catch(handleError);
     };
 
@@ -36,10 +44,12 @@ const SearchPage = () => {
         e.preventDefault();
         history.push(`/search/r/${postsSearch.subreddit}`);
         getTopPosts();
+        setLoading(true);
     };
 
     useEffect(() => {
         getTopPosts();
+        setLoading(true);
     }, []);
 
     return (
