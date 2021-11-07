@@ -26,7 +26,7 @@ function App() {
                             <Route exact path="/">
                                 <Home />
                             </Route>
-                            <Route path="/search/:subreddit">
+                            <Route path="/search/:subreddit" exact>
                                 <SearchPage />
                             </Route>
                             <Route>

@@ -34,7 +34,6 @@ const SearchPage = () => {
                     apiData.push(post.data.title);
                 }
                 setTopPosts(apiData);
-                console.log(topPosts);
             })
             .then(() => setLoading(false))
             .catch(handleError);

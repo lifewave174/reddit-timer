@@ -23,8 +23,8 @@ const H2 = styled.h2`
 const Info = () => {
     return (
         <Section>
-            <Infos>
-                <H2 id="how-it-works">How it works</H2>
+            <Infos id="how-it-works">
+                <H2>How it works</H2>
                 <ul>
                     <li>
                         We find 500 top posts from the past year for a subreddit
@@ -36,8 +36,8 @@ const Info = () => {
                     <li>See immediately when to submit your reddit post</li>
                 </ul>
             </Infos>
-            <Infos>
-                <H2 id="about">About</H2>
+            <Infos id="about">
+                <H2>About</H2>
                 <p>
                     The app was created during a course on profy.dev with the
                     goal to implement a pixel-perfect real-world application
