@@ -2,16 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import { handleResponse, handleError } from '../../api/apiUtils';
-import { defaultSubreddit } from '../../constants';
 import SearchForm from './SearchForm';
 import Heatmap from './Heatmap';
+import { defaultSubreddit } from '../../constants';
 
 const SearchPage = () => {
     const history = useHistory();
-    const [postsSearch, setSearch] = useState({
+    const [postSearch, setSearch] = useState({
         subreddit: defaultSubreddit,
-        year: new Date().getFullYear() - 1,
-        limit: 500,
+        time: 'year',
+        limit: 100,
     });
 
     const [topPosts, setTopPosts] = useState([]);
@@ -19,29 +19,36 @@ const SearchPage = () => {
 
     const onChange = ({ target }) => {
         setSearch({
-            ...postsSearch,
+            ...postSearch,
             subreddit: target.value,
         });
     };
 
-    const getTopPosts = () => {
-        const url = `https://www.reddit.com/r/${postsSearch.subreddit}/top.json?t=${postsSearch.year}&limit=${postsSearch.limit}`;
-        fetch(url)
-            .then(handleResponse)
-            .then(_topPosts => {
-                let apiData = [];
-                for (let post of _topPosts) {
-                    apiData.push(post.data.title);
-                }
-                setTopPosts(apiData);
-            })
-            .then(() => setLoading(false))
-            .catch(handleError);
+    const getTopPosts = async () => {
+        let url = `https://www.reddit.com/r/${postSearch.subreddit}/top.json?t=${postSearch.time}&limit=${postSearch.limit}`;
+        let _topPosts = [];
+        while (_topPosts.length < 500) {
+            const apiData = await fetch(url);
+            const _data = await handleResponse(apiData);
+            if (_data.after) {
+                url = `https://www.reddit.com/r/${postSearch.subreddit}/top.json?t=${postSearch.time}&limit=${postSearch.limit}&after=${_data.after}`;
+            }
+
+            for (let post of _data.children) {
+                _topPosts.push(post.data.title);
+            }
+            setTopPosts(_topPosts);
+            setLoading(false);
+        }
     };
+
+    console.log(topPosts);
 
     const onSubmit = e => {
         e.preventDefault();
-        history.push(`/search/r/${postsSearch.subreddit}`);
+        history.push({
+            pathname: `/search/${postSearch.subreddit}`,
+        });
         getTopPosts();
         setLoading(true);
     };
@@ -49,12 +56,16 @@ const SearchPage = () => {
     useEffect(() => {
         getTopPosts();
         setLoading(true);
+
+        return () => {
+            setTopPosts([]);
+        };
     }, []);
 
     return (
         <div>
             <SearchForm
-                postsSearch={postsSearch}
+                postSearch={postSearch}
                 onChange={onChange}
                 onSubmit={onSubmit}
             />
