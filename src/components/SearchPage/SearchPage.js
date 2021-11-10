@@ -28,6 +28,15 @@ const SearchPage = () => {
         let url = `https://www.reddit.com/r/${postSearch.subreddit}/top.json?t=${postSearch.time}&limit=${postSearch.limit}`;
         let _topPosts = [];
         let after = '';
+        let days = [
+            'Sunday',
+            'Monday',
+            'Tuesday',
+            'Wednesday',
+            'Thursday',
+            'Friday',
+            'Saturday',
+        ];
         while (_topPosts.length < 500 && after !== null) {
             const apiData = await fetch(url);
             const _data = await handleResponse(apiData);
@@ -35,15 +44,27 @@ const SearchPage = () => {
                 url = `https://www.reddit.com/r/${postSearch.subreddit}/top.json?t=${postSearch.time}&limit=${postSearch.limit}&after=${_data.after}`;
             }
             after = _data.after;
-            console.log(after);
 
-            for (let post of _data.children) {
-                _topPosts.push(post.data.title);
-            }
+            _data.children.map(post => {
+                _topPosts.push({
+                    title: (
+                        <a href={post.data.permalink} target="_blank">
+                            {post.data.title}
+                        </a>
+                    ),
+                    time: new Date(post.data.created_utc * 1000).toTimeString(),
+                    score: post.data.score,
+                    comments: post.data.num_comments,
+                    author: post.data.author,
+                    day: days[new Date(post.data.created_utc * 1000).getDay()],
+                });
+            });
             setTopPosts(_topPosts);
         }
         setLoading(false);
     };
+
+    console.log(topPosts);
 
     const onSubmit = e => {
         e.preventDefault();
@@ -70,7 +91,7 @@ const SearchPage = () => {
                 onChange={onChange}
                 onSubmit={onSubmit}
             />
-            <Heatmap topPosts={topPosts} isLoading={isLoading} />
+            <Heatmap isLoading={isLoading} topPosts={topPosts} />
         </div>
     );
 };

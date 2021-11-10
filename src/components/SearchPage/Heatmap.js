@@ -2,15 +2,13 @@ import React from 'react';
 import Loader from '../common/Loader';
 
 const Heatmap = ({ topPosts, isLoading }) => {
-    const renderedPosts = topPosts.map(post => {
-        return (
-            <ul>
-                <li key={post}>{post}</li>
-            </ul>
-        );
-    });
+    const Table = styled.table``;
 
-    return <div>{isLoading ? <Loader /> : renderedPosts} </div>;
+    const Thead = styled.thead``;
+
+    const Tr = styled.tr``;
+
+    return <div>{isLoading ? <Loader /> : <Table />} </div>;
 };
 
 export default Heatmap;
