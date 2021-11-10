@@ -27,22 +27,23 @@ const SearchPage = () => {
     const getTopPosts = async () => {
         let url = `https://www.reddit.com/r/${postSearch.subreddit}/top.json?t=${postSearch.time}&limit=${postSearch.limit}`;
         let _topPosts = [];
-        while (_topPosts.length < 500) {
+        let after = '';
+        while (_topPosts.length < 500 && after !== null) {
             const apiData = await fetch(url);
             const _data = await handleResponse(apiData);
             if (_data.after) {
                 url = `https://www.reddit.com/r/${postSearch.subreddit}/top.json?t=${postSearch.time}&limit=${postSearch.limit}&after=${_data.after}`;
             }
+            after = _data.after;
+            console.log(after);
 
             for (let post of _data.children) {
                 _topPosts.push(post.data.title);
             }
             setTopPosts(_topPosts);
-            setLoading(false);
         }
+        setLoading(false);
     };
-
-    console.log(topPosts);
 
     const onSubmit = e => {
         e.preventDefault();
