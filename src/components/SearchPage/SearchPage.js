@@ -16,7 +16,15 @@ const SearchPage = () => {
 
     const [topPosts, setTopPosts] = useState([]);
     const [isLoading, setLoading] = useState(true);
-
+    const days = [
+        'Sunday',
+        'Monday',
+        'Tuesday',
+        'Wednesday',
+        'Thursday',
+        'Friday',
+        'Saturday',
+    ];
     const onChange = ({ target }) => {
         setSearch({
             ...postSearch,
@@ -28,15 +36,6 @@ const SearchPage = () => {
         let url = `https://www.reddit.com/r/${postSearch.subreddit}/top.json?t=${postSearch.time}&limit=${postSearch.limit}`;
         let _topPosts = [];
         let after = '';
-        let days = [
-            'Sunday',
-            'Monday',
-            'Tuesday',
-            'Wednesday',
-            'Thursday',
-            'Friday',
-            'Saturday',
-        ];
         while (_topPosts.length < 500 && after !== null) {
             const apiData = await fetch(url);
             const _data = await handleResponse(apiData);
@@ -52,13 +51,16 @@ const SearchPage = () => {
                             {post.data.title}
                         </a>
                     ),
-                    time: new Date(post.data.created_utc * 1000).toTimeString(),
+                    time: new Date(post.data.created_utc * 1000)
+                        .toTimeString()
+                        .substring(0, 2),
                     score: post.data.score,
                     comments: post.data.num_comments,
                     author: post.data.author,
                     day: days[new Date(post.data.created_utc * 1000).getDay()],
                 });
             });
+
             setTopPosts(_topPosts);
         }
         setLoading(false);
@@ -91,7 +93,7 @@ const SearchPage = () => {
                 onChange={onChange}
                 onSubmit={onSubmit}
             />
-            <Heatmap isLoading={isLoading} topPosts={topPosts} />
+            <Heatmap isLoading={isLoading} topPosts={topPosts} days={days} />
         </div>
     );
 };
