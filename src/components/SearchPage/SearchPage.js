@@ -73,8 +73,6 @@ const SearchPage = () => {
         }
     };
 
-    console.log(topPosts);
-
     const onSubmit = e => {
         e.preventDefault();
         history.push({
