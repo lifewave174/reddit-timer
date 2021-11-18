@@ -22,6 +22,17 @@ const theme = {
     },
 
     heatmap: {
+        size: {
+            width: '1114',
+            daysHeaderWidth: '154',
+            get timeHeaderWidth() {
+                this.width - this.daysHeaderWidth;
+            },
+            timeHeaderHeight: '52',
+            get cellsWidth() {
+                return (this.width - this.daysHeaderWidth) / 24;
+            },
+        },
         hourColors: [
             '#e0e592',
             '#aed396',
@@ -40,7 +51,7 @@ const theme = {
         headerBorder: '#f3f3f3',
         heatmapHover: '#1e2537',
         headerBackground: 'linear-gradient(to bottom, #fefefe, #e9e9e9)',
-        highlighted: '#000000',
+        highlighttColor: '#000000',
     },
 };
 
