@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Loader from '../common/Loader';
 import RenderedHeatmap from './RenderedHeatmap';
 import PostTable from './PostTable';
+import TimeZone from './TimeZone';
 
 const Heatmap = ({ topPosts, isLoading, days }) => {
     const headerTime = [

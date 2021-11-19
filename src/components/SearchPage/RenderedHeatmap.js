@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledLink } from '../../styling/sharedstyles';
+import TimeZone from './TimeZone';
 import {
     Table,
     Tbody,
@@ -67,6 +67,7 @@ const RenderedHeatmap = ({
                     })}
                 </Tbody>
             </Table>
+            <TimeZone />
         </>
     );
 };

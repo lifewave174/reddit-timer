@@ -23,7 +23,7 @@ const H2 = styled.h2`
 const Info = () => {
     return (
         <Section>
-            <Infos id="how-it-works">
+            <Infos>
                 <H2>How it works</H2>
                 <ul>
                     <li>
@@ -33,12 +33,14 @@ const Info = () => {
                         The data is visualized in a heatmap grouped by weekday
                         and hour of the day
                     </li>
-                    <li>See immediately when to submit your reddit post</li>
+                    <li id="how-it-works">
+                        See immediately when to submit your reddit post
+                    </li>
                 </ul>
             </Infos>
-            <Infos id="about">
+            <Infos>
                 <H2>About</H2>
-                <p>
+                <p id="about">
                     The app was created during a course on profy.dev with the
                     goal to implement a pixel-perfect real-world application
                     with professional workflows and tolls like Kanban, ClickUp,
