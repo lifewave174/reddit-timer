@@ -3,8 +3,9 @@ import { useHistory } from 'react-router-dom';
 
 import { handleResponse, handleError } from '../../api/apiUtils';
 import SearchForm from './SearchForm';
-import Heatmap from './Heatmap';
+import Heatmap from './Heatmap/Heatmap';
 import { defaultSubreddit } from '../../constants';
+import { StyledLink } from '../../styling/sharedstyles';
 
 const SearchPage = () => {
     const history = useHistory();
@@ -48,16 +49,30 @@ const SearchPage = () => {
                 _data.children.map(post => {
                     _topPosts.push({
                         title: (
-                            <a href={post.data.permalink} target="_blank">
-                                {post.data.title}
-                            </a>
+                            <StyledLink
+                                inputColor={'#0087FF'}
+                                as="a"
+                                href={`https://reddit.com/${post.data.permalink} target=_blank`}
+                            >
+                                {post.data.title.length > 46
+                                    ? `${post.data.title.slice(0, 46)}...`
+                                    : post.data.title}
+                            </StyledLink>
                         ),
                         time: new Date(post.data.created_utc * 1000)
                             .toTimeString()
                             .substring(0, 2),
                         score: post.data.score,
                         comments: post.data.num_comments,
-                        author: post.data.author,
+                        author: (
+                            <StyledLink
+                                inputColor={'#0087FF'}
+                                as="a"
+                                href={`https://reddit.com/user/${post.data.author} target=_blank`}
+                            >
+                                {post.data.author}
+                            </StyledLink>
+                        ),
                         day: days[
                             new Date(post.data.created_utc * 1000).getDay()
                         ],

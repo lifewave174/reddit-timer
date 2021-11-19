@@ -53,6 +53,9 @@ const theme = {
         headerBackground: 'linear-gradient(to bottom, #fefefe, #e9e9e9)',
         highlighttColor: '#000000',
     },
+    postsTable: {
+        color: '#0087FF',
+    },
 };
 
 export default theme;

@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import Loader from '../common/Loader';
+import Loader from '../../common/Loader';
 import RenderedHeatmap from './RenderedHeatmap';
-import PostTable from './PostTable';
-import TimeZone from './TimeZone';
+import PostTable from '../PostTable/PostTable';
 
 const Heatmap = ({ topPosts, isLoading, days }) => {
     const headerTime = [
@@ -49,7 +48,7 @@ const Heatmap = ({ topPosts, isLoading, days }) => {
     };
 
     return (
-        <div>
+        <section>
             {isLoading ? (
                 <Loader />
             ) : (
@@ -63,7 +62,7 @@ const Heatmap = ({ topPosts, isLoading, days }) => {
                 />
             )}
             <PostTable postsPerHour={postsPerHour} />
-        </div>
+        </section>
     );
 };
 

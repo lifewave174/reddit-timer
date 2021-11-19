@@ -1,14 +1,10 @@
 import React from 'react';
-import TimeZone from './TimeZone';
+import TimeZone from '../Timezone/TimeZone';
 import {
-    Table,
-    Tbody,
+    HeatmapTable,
     TimeHeader,
-    Th,
-    Tr,
     TCells,
     DaysHeader,
-    Thead,
     Td,
 } from './Heatmap.style';
 
@@ -21,9 +17,9 @@ const RenderedHeatmap = ({
 }) => {
     return (
         <>
-            <Table>
-                <Thead>
-                    <Tr>
+            <HeatmapTable>
+                <thead>
+                    <tr key="timerow">
                         <th></th>
                         {headerTime.map(time => {
                             return (
@@ -32,12 +28,12 @@ const RenderedHeatmap = ({
                                 </TimeHeader>
                             );
                         })}
-                    </Tr>
-                </Thead>
-                <Tbody>
+                    </tr>
+                </thead>
+                <tbody>
                     {days.map(day => {
                         return (
-                            <Tr key={day + 'row'}>
+                            <tr key={day + 'row'}>
                                 <DaysHeader key={day + 'header'}>
                                     {day}
                                 </DaysHeader>
@@ -62,11 +58,11 @@ const RenderedHeatmap = ({
                                         </Td>
                                     );
                                 })}
-                            </Tr>
+                            </tr>
                         );
                     })}
-                </Tbody>
-            </Table>
+                </tbody>
+            </HeatmapTable>
             <TimeZone />
         </>
     );

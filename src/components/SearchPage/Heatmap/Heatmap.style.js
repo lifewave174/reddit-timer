@@ -8,15 +8,7 @@ const getHeatmapBackground = ({ numOfPosts, theme }) => {
         : heatmapColors[numOfPosts];
 };
 
-const Thead = styled.thead``;
-
-const Tbody = styled.tbody``;
-
-const Tr = styled.tr``;
-
-const Th = styled.th``;
-
-const Table = styled.table`
+const HeatmapTable = styled.table`
     width: ${props => props.theme.heatmap.size.width}px;
     max-width: 100%;
     margin: auto;
@@ -62,4 +54,4 @@ const TCells = styled.button`
     }
 `;
 
-export { Table, Tbody, TimeHeader, Thead, Tr, TCells, DaysHeader, Th, Td };
+export { HeatmapTable, TimeHeader, TCells, DaysHeader, Td };

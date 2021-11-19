@@ -12,7 +12,7 @@ const Section = styled.section`
 
 const StyledLink = styled(Link)`
     text-decoration: none;
-    color: ${props => props.theme.color.primary};
+    color: ${props => props.inputColor || props.theme.color.primary};
 `;
 
 const MainWrapper = styled.section`

@@ -6,8 +6,8 @@ const TimeZone = () => {
     return (
         <CurrentTimezone>
             <div>
-                All times are shown in your timezone:{' '}
-                <span style={{ fontWeight: 'bold' }}>{timezone}</span>{' '}
+                All times are shown in your timezone:
+                <span style={{ fontWeight: 'bold' }}>{timezone}</span>
             </div>
         </CurrentTimezone>
     );
