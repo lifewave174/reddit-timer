@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import { defaultSubreddit } from '../constants';
 import { Button, Section, H1 } from '../styling/sharedstyles';
+import { defaultSubreddit } from '../constants';
 
 const TitleSection = styled.div`
     display: flex;
@@ -38,11 +38,11 @@ const Hero = () => {
                     your subreddit
                 </H3>
             </TitleSection>
-            <Button as={Link} to={`/search/r/${defaultSubreddit}`}>
+            <Button as={Link} to={`/search/${defaultSubreddit}`}>
                 Show me the best time
             </Button>
             <P>r/{defaultSubreddit}</P>
-            <Link to={`/search/r/${defaultSubreddit}`}>
+            <Link to={`/search/${defaultSubreddit}`}>
                 <HeroImage
                     src="/images/hero-2x.png"
                     srcSet="/images/hero-1x.png, /images/hero-2x.png, /images/hero-3x.png"

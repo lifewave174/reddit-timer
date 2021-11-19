@@ -17,7 +17,7 @@ const Input = styled.input`
     margin: 10px;
 `;
 
-const SearchForm = ({ postsSearch, onChange, onSubmit }) => {
+const SearchForm = ({ postSearch, onChange, onSubmit }) => {
     return (
         <Search>
             <H1>Find the best time for a subreddit</H1>
@@ -25,7 +25,7 @@ const SearchForm = ({ postsSearch, onChange, onSubmit }) => {
                 r/
                 <Input
                     type="text"
-                    value={postsSearch.subreddit}
+                    value={postSearch.subreddit}
                     onChange={onChange}
                 ></Input>
                 <Button>Search</Button>

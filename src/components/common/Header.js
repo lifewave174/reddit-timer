@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import styled from 'styled-components';
 
 import { defaultSubreddit } from '../../constants';
@@ -36,10 +37,10 @@ const Header = () => {
                 <StyledLink to={`/search/${defaultSubreddit}`}>
                     Search
                 </StyledLink>
-                <StyledLink as="a" href="#how-it-works">
+                <StyledLink as={HashLink} smooth to="/#how-it-works">
                     How it works
                 </StyledLink>
-                <StyledLink as="a" href="#about">
+                <StyledLink as={HashLink} smooth to="/#about">
                     About
                 </StyledLink>
             </Nav>
