@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
 import Loader from '../../common/Loader';
 import RenderedHeatmap from './RenderedHeatmap';
-import PostTable from '../PostTable/PostTable';
 
-const Heatmap = ({ topPosts, isLoading, days }) => {
+const Heatmap = ({
+    topPosts,
+    isLoading,
+    days,
+    onHourSelect,
+    isPostsTable,
+    postsPerHour,
+}) => {
     const headerTime = [
         '12:00 am',
         '2:00 am',
@@ -38,15 +43,6 @@ const Heatmap = ({ topPosts, isLoading, days }) => {
         return numOfPosts.length;
     };
 
-    const [postsPerHour, setPostsPerHour] = useState([]);
-
-    const onHourSelect = (day, time) => {
-        let _postsPerHour = topPosts.filter(post => {
-            return post.day === day && post.time === time;
-        });
-        setPostsPerHour(_postsPerHour);
-    };
-
     return (
         <section>
             {isLoading ? (
@@ -59,9 +55,10 @@ const Heatmap = ({ topPosts, isLoading, days }) => {
                     headerTime={headerTime}
                     hours={hours}
                     onHourSelect={onHourSelect}
+                    postsPerHour={postsPerHour}
+                    isPostsTable={isPostsTable}
                 />
             )}
-            <PostTable postsPerHour={postsPerHour} />
         </section>
     );
 };

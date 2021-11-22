@@ -23,7 +23,7 @@ const theme = {
 
     heatmap: {
         size: {
-            width: '1114',
+            width: '1200',
             daysHeaderWidth: '154',
             get timeHeaderWidth() {
                 this.width - this.daysHeaderWidth;
@@ -55,6 +55,7 @@ const theme = {
     },
     postsTable: {
         color: '#0087FF',
+        size: '930',
     },
 };
 

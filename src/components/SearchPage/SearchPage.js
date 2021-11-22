@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
+import PostsSection from './PostTable/PostsSection';
 import { handleResponse, handleError } from '../../api/apiUtils';
 import SearchForm from './SearchForm';
 import Heatmap from './Heatmap/Heatmap';
@@ -52,7 +53,8 @@ const SearchPage = () => {
                             <StyledLink
                                 inputColor={'#0087FF'}
                                 as="a"
-                                href={`https://reddit.com/${post.data.permalink} target=_blank`}
+                                href={`https://reddit.com/${post.data.permalink}`}
+                                target="_blank"
                             >
                                 {post.data.title.length > 46
                                     ? `${post.data.title.slice(0, 46)}...`
@@ -68,7 +70,8 @@ const SearchPage = () => {
                             <StyledLink
                                 inputColor={'#0087FF'}
                                 as="a"
-                                href={`https://reddit.com/user/${post.data.author} target=_blank`}
+                                href={`https://reddit.com/user/${post.data.author}`}
+                                target="_blank"
                             >
                                 {post.data.author}
                             </StyledLink>
@@ -106,6 +109,17 @@ const SearchPage = () => {
         };
     }, []);
 
+    const [postsPerHour, setPostsPerHour] = useState([]);
+    const [isPostsTable, setPostsTable] = useState(false);
+
+    const onHourSelect = (day, time) => {
+        let _postsPerHour = topPosts.filter(post => {
+            return post.day === day && post.time === time;
+        });
+        setPostsPerHour(_postsPerHour);
+        setPostsTable(true);
+    };
+
     return (
         <div>
             <SearchForm
@@ -113,7 +127,15 @@ const SearchPage = () => {
                 onChange={onChange}
                 onSubmit={onSubmit}
             />
-            <Heatmap isLoading={isLoading} topPosts={topPosts} days={days} />
+            <Heatmap
+                isLoading={isLoading}
+                topPosts={topPosts}
+                days={days}
+                onHourSelect={onHourSelect}
+                isPostsTable={isPostsTable}
+                postsPerHour={postsPerHour}
+            />
+            <PostsSection postsPerHour={postsPerHour} />
         </div>
     );
 };

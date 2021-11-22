@@ -1,4 +1,6 @@
 import React from 'react';
+import PostsSection from '../PostTable/PostsSection';
+
 import TimeZone from '../Timezone/TimeZone';
 import {
     HeatmapTable,

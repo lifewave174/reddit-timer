@@ -15,7 +15,6 @@ const HeatmapTable = styled.table`
     border: none;
     border-collapse: collapse;
 `;
-
 const TimeHeader = styled.th`
     color: ${props => props.theme.heatmap.timeHeaderColor};
     width: ${props => props.theme.heatmap.size.timeHeaderWidth}px;
