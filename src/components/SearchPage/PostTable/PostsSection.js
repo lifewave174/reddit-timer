@@ -6,7 +6,7 @@ import { PostSection } from './PostTable.style';
 const PostsSection = ({ isPostsTable, postsPerHour }) => {
     return (
         <PostSection>
-            <PostTable postsPerHour={postsPerHour} />
+            {isPostsTable ? <PostTable postsPerHour={postsPerHour} /> : null}
         </PostSection>
     );
 };

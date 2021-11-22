@@ -116,8 +116,10 @@ const SearchPage = () => {
         let _postsPerHour = topPosts.filter(post => {
             return post.day === day && post.time === time;
         });
+
         setPostsPerHour(_postsPerHour);
         setPostsTable(true);
+        if (_postsPerHour.length === 0) setPostsTable(false);
     };
 
     return (
@@ -132,10 +134,12 @@ const SearchPage = () => {
                 topPosts={topPosts}
                 days={days}
                 onHourSelect={onHourSelect}
-                isPostsTable={isPostsTable}
                 postsPerHour={postsPerHour}
             />
-            <PostsSection postsPerHour={postsPerHour} />
+            <PostsSection
+                postsPerHour={postsPerHour}
+                isPostsTable={isPostsTable}
+            />
         </div>
     );
 };

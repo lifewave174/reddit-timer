@@ -1,14 +1,7 @@
 import Loader from '../../common/Loader';
 import RenderedHeatmap from './RenderedHeatmap';
 
-const Heatmap = ({
-    topPosts,
-    isLoading,
-    days,
-    onHourSelect,
-    isPostsTable,
-    postsPerHour,
-}) => {
+const Heatmap = ({ topPosts, isLoading, days, onHourSelect, postsPerHour }) => {
     const headerTime = [
         '12:00 am',
         '2:00 am',
@@ -56,7 +49,6 @@ const Heatmap = ({
                     hours={hours}
                     onHourSelect={onHourSelect}
                     postsPerHour={postsPerHour}
-                    isPostsTable={isPostsTable}
                 />
             )}
         </section>
