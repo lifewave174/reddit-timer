@@ -1,8 +1,9 @@
 const theme = {
     color: {
         lightest: '#ffffff',
-        secondary: '#000000',
         primary: '#93918f',
+        secondary: '#000000',
+        buttons: '#fdb755',
     },
     font: {
         family: {

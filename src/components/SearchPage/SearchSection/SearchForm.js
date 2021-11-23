@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { H1, Button } from '../../styling/sharedstyles';
+import { H1, Button } from '../../../styling/sharedstyles';
 
 const Search = styled.div`
     display: flex;

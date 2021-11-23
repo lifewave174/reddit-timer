@@ -20,7 +20,7 @@ const MainWrapper = styled.section`
 `;
 
 const Button = styled.button`
-    background-color: #fdb755;
+    background-color: ${props => props.theme.color.buttons};
     color: white;
     text-transform: uppercase;
     height: 36px;

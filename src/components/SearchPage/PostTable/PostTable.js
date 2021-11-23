@@ -27,7 +27,17 @@ const PostTable = ({ postsPerHour }) => {
                         return (
                             <PostTableRow>
                                 <PostTableCells>{posts.title}</PostTableCells>
-                                <PostTableCells>{posts.time}</PostTableCells>
+                                <PostTableCells>
+                                    {posts.timeForPostTable.substring(0, 4) < 12
+                                        ? posts.timeForPostTable.substring(
+                                              0,
+                                              5
+                                          ) + ' am'
+                                        : posts.timeForPostTable.substring(
+                                              0,
+                                              5
+                                          ) + ' pm'}
+                                </PostTableCells>
                                 <PostTableCells>{posts.score}</PostTableCells>
                                 <PostTableCells>
                                     {posts.comments}

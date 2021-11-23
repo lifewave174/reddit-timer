@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
-import PostsSection from './PostTable/PostsSection';
-import { handleResponse, handleError } from '../../api/apiUtils';
+import { SearchSection } from './SearchPage.style';
+import PostsSection from '../PostTable/PostsSection';
+import { handleResponse, handleError } from '../../../api/apiUtils';
 import SearchForm from './SearchForm';
-import Heatmap from './Heatmap/Heatmap';
-import { defaultSubreddit } from '../../constants';
-import { StyledLink } from '../../styling/sharedstyles';
+import Heatmap from '../Heatmap/Heatmap';
+import { defaultSubreddit } from '../../../constants';
+import { StyledLink } from '../../../styling/sharedstyles';
 
 const SearchPage = () => {
     const history = useHistory();
@@ -64,6 +65,9 @@ const SearchPage = () => {
                         time: new Date(post.data.created_utc * 1000)
                             .toTimeString()
                             .substring(0, 2),
+                        timeForPostTable: new Date(
+                            post.data.created_utc * 1000
+                        ).toTimeString(),
                         score: post.data.score,
                         comments: post.data.num_comments,
                         author: (
@@ -98,11 +102,13 @@ const SearchPage = () => {
         });
         getTopPosts();
         setLoading(true);
+        setPostsTable(false);
     };
 
     useEffect(() => {
         getTopPosts();
         setLoading(true);
+        setPostsTable(false);
 
         return () => {
             setTopPosts([]);
@@ -113,17 +119,22 @@ const SearchPage = () => {
     const [isPostsTable, setPostsTable] = useState(false);
 
     const onHourSelect = (day, time) => {
+        topPosts.sort((a, b) =>
+            a.timeForPostTable > b.timeForPostTable ? 1 : -1
+        );
         let _postsPerHour = topPosts.filter(post => {
             return post.day === day && post.time === time;
         });
 
         setPostsPerHour(_postsPerHour);
+
         setPostsTable(true);
-        if (_postsPerHour.length === 0) setPostsTable(false);
+        if (_postsPerHour.length === 0 || isLoading === true)
+            setPostsTable(false);
     };
 
     return (
-        <div>
+        <SearchSection>
             <SearchForm
                 postSearch={postSearch}
                 onChange={onChange}
@@ -140,7 +151,7 @@ const SearchPage = () => {
                 postsPerHour={postsPerHour}
                 isPostsTable={isPostsTable}
             />
-        </div>
+        </SearchSection>
     );
 };
 
