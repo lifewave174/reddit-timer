@@ -10,15 +10,20 @@ import { defaultSubreddit } from '../../../constants';
 import { StyledLink } from '../../../styling/sharedstyles';
 
 const SearchPage = () => {
-    const history = useHistory();
+    //creating a state object for the api search path
     const [postSearch, setSearch] = useState({
         subreddit: defaultSubreddit,
         time: 'year',
         limit: 100,
     });
 
+    //topPosts object here is used to filter out and display the object properties that we need from the api call
     const [topPosts, setTopPosts] = useState([]);
+
+    //loader state below sets the loader to true or false depending on the received api call
     const [isLoading, setLoading] = useState(true);
+
+    //days array is initialized here in order to directly modify the api call and push it to top posts with the days, while also using the array to display the days in the heatmap
     const days = [
         'Sunday',
         'Monday',
@@ -28,6 +33,8 @@ const SearchPage = () => {
         'Friday',
         'Saturday',
     ];
+
+    //onchange function uses the logic of react controlled components in order to catch the form input
     const onChange = ({ target }) => {
         setSearch({
             ...postSearch,
@@ -35,6 +42,7 @@ const SearchPage = () => {
         });
     };
 
+    //below is our api call, a big function that uses the while loop to send multiple requests to the api call in order to deal with reddit api's pagination
     const getTopPosts = async () => {
         let url = `https://www.reddit.com/r/${postSearch.subreddit}/top.json?t=${postSearch.time}&limit=${postSearch.limit}`;
         let _topPosts = [];
@@ -48,6 +56,7 @@ const SearchPage = () => {
                 }
                 after = _data.after;
 
+                //we are directly pushing a modified version of the posts object that we will use in the heatmap and the posts table
                 _data.children.map(post => {
                     _topPosts.push({
                         title: (
@@ -95,6 +104,10 @@ const SearchPage = () => {
         }
     };
 
+    //initializing history in order to push the pathname to the url on search form submit
+    const history = useHistory();
+
+    //the submit function here calls the api and also pushes the path name, while setting the loader and post table state
     const onSubmit = e => {
         e.preventDefault();
         history.push({
@@ -105,6 +118,7 @@ const SearchPage = () => {
         setPostsTable(false);
     };
 
+    //useEffect calls the api call on load and sets the loader and post table state
     useEffect(() => {
         getTopPosts();
         setLoading(true);
@@ -115,9 +129,13 @@ const SearchPage = () => {
         };
     }, []);
 
+    //initializing a state for posts per hour, which will populate upon the onHourSelect function below
     const [postsPerHour, setPostsPerHour] = useState([]);
+
+    //depending on whether there are any posts per hour, the isPostsTable state below sets the table display state
     const [isPostsTable, setPostsTable] = useState(false);
 
+    //onHourSelect function below filters out the posts based on the day and time from the topPosts object
     const onHourSelect = (day, time) => {
         topPosts.sort((a, b) =>
             a.timeForPostTable > b.timeForPostTable ? 1 : -1

@@ -57,6 +57,7 @@ const theme = {
     postsTable: {
         color: '#0087FF',
         size: '930',
+        borderColor: '#dddddd',
     },
 };
 

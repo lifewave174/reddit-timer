@@ -2,6 +2,7 @@ import Loader from '../../common/Loader';
 import RenderedHeatmap from './RenderedHeatmap';
 
 const Heatmap = ({ topPosts, isLoading, days, onHourSelect, postsPerHour }) => {
+    //Here we define the header time seperately for formatting purposes
     const headerTime = [
         '12:00 am',
         '2:00 am',
@@ -17,6 +18,7 @@ const Heatmap = ({ topPosts, isLoading, days, onHourSelect, postsPerHour }) => {
         '10:00 pm',
     ];
 
+    //A new hours array is created here in order to match with the hours coming from the api
     let hours = [];
 
     function getHoursArray() {
@@ -27,6 +29,8 @@ const Heatmap = ({ topPosts, isLoading, days, onHourSelect, postsPerHour }) => {
     }
 
     getHoursArray();
+
+    //Creating a function to use during the table rendering in order to filter out posts based on the day and time
 
     const getNumOfPostsPerHour = (day, time) => {
         let numOfPosts = topPosts.filter(post => {

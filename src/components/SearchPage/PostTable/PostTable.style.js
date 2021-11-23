@@ -8,18 +8,18 @@ export const PostSection = styled.section`
 export const PostsTable = styled.table`
 font-family: ${props => props.theme.font.family.default};
 font-size: ${props => props.theme.font.size.default}
-border: 1px solid #dddddd;
+border: 1px solid ${props => props.theme.postsTable.borderColor};
 border-collapse: collapse;
 width: 100%;
 `;
 
 export const PostTableRow = styled.tr`
-    border: 1px solid #dddddd;
+    border: 1px solid ${props => props.theme.postsTable.borderColor};
     padding: 10px;
 `;
 
 export const PostTableCells = styled.td`
-    border: 1px solid #dddddd;
+    border: 1px solid ${props => props.theme.postsTable.borderColor};
     color: ${props => props.theme.color.secondary};
     padding: 10px;
 `;
@@ -29,6 +29,5 @@ export const PostTableHeader = styled.th`
     padding: 5px 10px;
     color: ${props => props.theme.color.secondary};
     text-align: left;
-
-    border: 1px solid #dddddd;
+    border: 1px solid ${props => props.theme.postsTable.borderColor};
 `;

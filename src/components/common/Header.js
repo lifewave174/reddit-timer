@@ -21,7 +21,6 @@ const Nav = styled.nav`
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     text-align: center;
     font-size: 0.95rem;
     padding: 0 5px;
