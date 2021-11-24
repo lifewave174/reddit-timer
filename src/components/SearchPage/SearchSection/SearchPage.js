@@ -42,7 +42,7 @@ const SearchPage = () => {
         });
     };
 
-    //below is our api call, a big function that uses the while loop to send multiple requests to the api call in order to deal with reddit api's pagination
+    //below is our api call, a big function that uses the while loop to send multiple requests to the api in order to deal with reddit api's pagination
     const getTopPosts = async () => {
         let url = `https://www.reddit.com/r/${postSearch.subreddit}/top.json?t=${postSearch.time}&limit=${postSearch.limit}`;
         let _topPosts = [];
@@ -51,6 +51,8 @@ const SearchPage = () => {
             while (_topPosts.length < 500 && after !== null) {
                 const apiData = await fetch(url);
                 const _data = await handleResponse(apiData);
+
+                //it is important to reassign the url below entirely
                 if (_data.after) {
                     url = `https://www.reddit.com/r/${postSearch.subreddit}/top.json?t=${postSearch.time}&limit=${postSearch.limit}&after=${_data.after}`;
                 }
@@ -74,6 +76,8 @@ const SearchPage = () => {
                         time: new Date(post.data.created_utc * 1000)
                             .toTimeString()
                             .substring(0, 2),
+
+                        //we are making another object property for time for the formatted time in the posts table
                         timeForPostTable: new Date(
                             post.data.created_utc * 1000
                         ).toTimeString(),
@@ -104,7 +108,7 @@ const SearchPage = () => {
         }
     };
 
-    //initializing history in order to push the pathname to the url on search form submit
+    //initializing history in order to push the pathname to the url onSubmit of the Search form
     const history = useHistory();
 
     //the submit function here calls the api and also pushes the path name, while setting the loader and post table state
@@ -118,7 +122,7 @@ const SearchPage = () => {
         setPostsTable(false);
     };
 
-    //useEffect calls the api call on load and sets the loader and post table state
+    //useEffect calls the api on load and sets the loader and post table state
     useEffect(() => {
         getTopPosts();
         setLoading(true);

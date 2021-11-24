@@ -70,4 +70,12 @@ const RenderedHeatmap = ({
     );
 };
 
+RenderedHeatmap.propTypes = {
+    days: PropTypes.array.isRequired,
+    getNumOfPostsPerHour: PropTypes.func.isRequired,
+    headerTime: PropTypes.array.isRequired,
+    hours: PropTypes.array.isRequired,
+    onHourSelect: PropTypes.func.isRequired,
+};
+
 export default RenderedHeatmap;

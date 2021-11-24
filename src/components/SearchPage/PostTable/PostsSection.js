@@ -12,4 +12,9 @@ const PostsSection = ({ isPostsTable, postsPerHour }) => {
     );
 };
 
+PostsSection.propTypes = {
+    isPostsTable: PropTypes.bool.isRequired,
+    postsPerHour: PropTypes.array.isRequired,
+};
+
 export default PostsSection;

@@ -30,7 +30,7 @@ const Heatmap = ({ topPosts, isLoading, days, onHourSelect, postsPerHour }) => {
 
     getHoursArray();
 
-    //Creating a function to use during the table rendering in order to filter out posts based on the day and time
+    //creating a function to use during the table rendering in order to filter out posts based on the day and time
 
     const getNumOfPostsPerHour = (day, time) => {
         let numOfPosts = topPosts.filter(post => {
@@ -57,6 +57,14 @@ const Heatmap = ({ topPosts, isLoading, days, onHourSelect, postsPerHour }) => {
             )}
         </section>
     );
+};
+
+Heatmap.propTypes = {
+    topPosts: PropTypes.object.isRequired,
+    isLoading: PropTypes.bool.isRequired,
+    days: PropTypes.araay.isRequired,
+    onHourSelect: PropTypes.func.isRequired,
+    postsPerHour: PropTypes.array.isRequired,
 };
 
 export default Heatmap;

@@ -52,4 +52,16 @@ const PostTable = ({ postsPerHour }) => {
     );
 };
 
+PostTable.propTypes = {
+    postsPerHour: PropTypes.arrayOf(
+        PropTypes.shape({
+            title: PropTypes.string.isRequired,
+            timeForPostTable: PropTypes.string.isRequired,
+            score: PropTypes.string.isRequired,
+            comments: PropTypes.string.isRequired,
+            author: PropTypes.string.isRequired,
+        })
+    ),
+};
+
 export default PostTable;

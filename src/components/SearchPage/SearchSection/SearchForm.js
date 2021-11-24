@@ -18,4 +18,14 @@ const SearchForm = ({ postSearch, onChange, onSubmit }) => {
     );
 };
 
+SearchForm.propTypes = {
+    postSearch: PropTypes.arrayOf(
+        PropTypes.shape({
+            subreddit: PropTypes.string.isRequired,
+        })
+    ),
+    onChange: PropTypes.func.isRequired,
+    onSubmit: PropTypes.func.isRequired,
+};
+
 export default SearchForm;
