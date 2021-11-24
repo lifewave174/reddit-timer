@@ -1,5 +1,5 @@
 import React from 'react';
-import PostsSection from '../PostTable/PostsSection';
+import PropTypes from 'prop-types';
 
 import TimeZone from '../Timezone/TimeZone';
 import {

@@ -1,3 +1,6 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+
 import Loader from '../../common/Loader';
 import RenderedHeatmap from './RenderedHeatmap';
 
@@ -62,7 +65,7 @@ const Heatmap = ({ topPosts, isLoading, days, onHourSelect, postsPerHour }) => {
 Heatmap.propTypes = {
     topPosts: PropTypes.object.isRequired,
     isLoading: PropTypes.bool.isRequired,
-    days: PropTypes.araay.isRequired,
+    days: PropTypes.array.isRequired,
     onHourSelect: PropTypes.func.isRequired,
     postsPerHour: PropTypes.array.isRequired,
 };

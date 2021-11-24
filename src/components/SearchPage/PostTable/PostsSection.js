@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import PostTable from './PostTable';
 import { PostSection } from './PostTable.style';

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import { SearchSection } from './SearchPage.style';
 import PostsSection from '../PostTable/PostsSection';

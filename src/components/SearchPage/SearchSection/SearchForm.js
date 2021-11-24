@@ -1,3 +1,6 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+
 import { H1, Button } from '../../../styling/sharedstyles';
 import { Search, Input } from './SearchPage.style';
 
