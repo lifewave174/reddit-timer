@@ -1,7 +1,8 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const PostSection = styled.section`
     width: ${props => props.theme.postsTable.size}px;
+    max-width: 100%;
     margin: auto;
 `;
 
@@ -30,4 +31,24 @@ export const PostTableHeader = styled.th`
     color: ${props => props.theme.color.secondary};
     text-align: left;
     border: 1px solid ${props => props.theme.postsTable.borderColor};
+`;
+
+const singleLineEllipsis = css`
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+`;
+
+export const TitleColumn = styled.td`
+    width: 373px;
+    max-width: 373px;
+    padding: 10px;
+    ${singleLineEllipsis}
+`;
+
+export const AuthorColumn = styled.td`
+    width: 129px;
+    max-width: 129px;
+    padding: 10px;
+    ${singleLineEllipsis}
 `;

@@ -7,6 +7,7 @@ import PostsSection from '../PostTable/PostsSection';
 import { handleResponse, handleError } from '../../../api/apiUtils';
 import SearchForm from './SearchForm';
 import Heatmap from '../Heatmap/Heatmap';
+import ErrorContainer from './ErrorContainer';
 import { defaultSubreddit } from '../../../constants';
 import { StyledLink } from '../../../styling/sharedstyles';
 
@@ -20,6 +21,8 @@ const SearchPage = () => {
 
     //topPosts object here is used to filter out and display the object properties that we need from the api call
     const [topPosts, setTopPosts] = useState([]);
+
+    const [hasError, setError] = useState(false);
 
     //loader state below sets the loader to true or false depending on the received api call
     const [isLoading, setLoading] = useState(true);
@@ -48,6 +51,7 @@ const SearchPage = () => {
         let url = `https://www.reddit.com/r/${postSearch.subreddit}/top.json?t=${postSearch.time}&limit=${postSearch.limit}`;
         let _topPosts = [];
         let after = '';
+        if (hasError === true) setError(false);
         try {
             while (_topPosts.length < 500 && after !== null) {
                 const apiData = await fetch(url);
@@ -69,9 +73,7 @@ const SearchPage = () => {
                                 href={`https://reddit.com/${post.data.permalink}`}
                                 target="_blank"
                             >
-                                {post.data.title.length > 46
-                                    ? `${post.data.title.slice(0, 46)}...`
-                                    : post.data.title}
+                                {post.data.title}
                             </StyledLink>
                         ),
                         time: new Date(post.data.created_utc * 1000)
@@ -103,6 +105,7 @@ const SearchPage = () => {
                 setTopPosts(_topPosts);
             }
         } catch {
+            setError(true);
             handleError;
         } finally {
             setLoading(false);
@@ -163,17 +166,24 @@ const SearchPage = () => {
                 onChange={onChange}
                 onSubmit={onSubmit}
             />
-            <Heatmap
-                isLoading={isLoading}
-                topPosts={topPosts}
-                days={days}
-                onHourSelect={onHourSelect}
-                postsPerHour={postsPerHour}
-            />
-            <PostsSection
-                postsPerHour={postsPerHour}
-                isPostsTable={isPostsTable}
-            />
+
+            {hasError === true ? (
+                <ErrorContainer />
+            ) : (
+                <>
+                    <Heatmap
+                        isLoading={isLoading}
+                        topPosts={topPosts}
+                        days={days}
+                        onHourSelect={onHourSelect}
+                        postsPerHour={postsPerHour}
+                    />
+                    <PostsSection
+                        postsPerHour={postsPerHour}
+                        isPostsTable={isPostsTable}
+                    />
+                </>
+            )}
         </SearchSection>
     );
 };

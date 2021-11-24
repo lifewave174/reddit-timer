@@ -41,7 +41,7 @@ const RenderedHeatmap = ({
                                 </DaysHeader>
                                 {hours.map(hour => {
                                     return (
-                                        <Td>
+                                        <Td key={hour + 'cell'}>
                                             <TCells
                                                 key={'posts-at' + hour}
                                                 onClick={() =>

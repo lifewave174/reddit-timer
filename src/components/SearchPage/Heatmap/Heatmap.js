@@ -63,7 +63,7 @@ const Heatmap = ({ topPosts, isLoading, days, onHourSelect, postsPerHour }) => {
 };
 
 Heatmap.propTypes = {
-    topPosts: PropTypes.object.isRequired,
+    topPosts: PropTypes.array.isRequired,
     isLoading: PropTypes.bool.isRequired,
     days: PropTypes.array.isRequired,
     onHourSelect: PropTypes.func.isRequired,

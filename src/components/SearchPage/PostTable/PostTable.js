@@ -7,6 +7,8 @@ import {
     PostTableRow,
     PostTableHeader,
     PostTableCells,
+    TitleColumn,
+    AuthorColumn,
 } from './PostTable.style';
 
 const PostTable = ({ postsPerHour }) => {
@@ -26,8 +28,8 @@ const PostTable = ({ postsPerHour }) => {
                 <tbody>
                     {postsPerHour.map(posts => {
                         return (
-                            <PostTableRow>
-                                <PostTableCells>{posts.title}</PostTableCells>
+                            <PostTableRow key={`${posts.score}postscore`}>
+                                <TitleColumn>{posts.title}</TitleColumn>
                                 <PostTableCells>
                                     {posts.timeForPostTable.substring(0, 4) < 12
                                         ? posts.timeForPostTable.substring(
@@ -43,7 +45,7 @@ const PostTable = ({ postsPerHour }) => {
                                 <PostTableCells>
                                     {posts.comments}
                                 </PostTableCells>
-                                <PostTableCells>{posts.author}</PostTableCells>
+                                <AuthorColumn>{posts.author}</AuthorColumn>
                             </PostTableRow>
                         );
                     })}
@@ -56,11 +58,11 @@ const PostTable = ({ postsPerHour }) => {
 PostTable.propTypes = {
     postsPerHour: PropTypes.arrayOf(
         PropTypes.shape({
-            title: PropTypes.string.isRequired,
+            title: PropTypes.object.isRequired,
             timeForPostTable: PropTypes.string.isRequired,
-            score: PropTypes.string.isRequired,
-            comments: PropTypes.string.isRequired,
-            author: PropTypes.string.isRequired,
+            score: PropTypes.number.isRequired,
+            comments: PropTypes.number.isRequired,
+            author: PropTypes.object.isRequired,
         })
     ),
 };
