@@ -13,8 +13,9 @@ In an effort to familiarize myself with a professional real-world development en
 -   **Working with RESTful APIs**
 -   **Professional Git workflow with pull requests**
 -   **Code Reviews**
+-   **Continuous integration**
 
-Additionally, **continuous integration** and **testing** are also a part of the project, which I plan to integrate in the near future.
+Additionally, **writing tests** is also a part of the project, which I plan to integrate in the near future.
 
 ### Tools & Tech Stack
 
