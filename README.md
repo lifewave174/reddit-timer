@@ -1,10 +1,10 @@
-#Reddit Timer App
+# Reddit Timer App
 
 The Reddit Timer app is an app that will tell you the best times to post on Reddit based on last year's data for a given Subreddit.
 
 ![Heatmap showing best times to post](./docs/heatmap.png)
 
-##About this project
+## About this project
 
 In an effort to familiarize myself with a professional real-world development environment, I decided to take up this project, offered as a course at [ooloo.io](https://ooloo.io/). In this project, designs were provided via [Figma](https://figma.com). The project was split in several tasks in order to simulate a team environment. The tasks were provided via a kanban style board through [ClickUp](https://clickup.com). I was exposed to the following techniques:
 
@@ -16,7 +16,7 @@ In an effort to familiarize myself with a professional real-world development en
 
 Additionally, **continuous integration** and **testing** are also a part of the project, which I plan to integrate in the near future.
 
-###Tools & Tech Stack
+### Tools & Tech Stack
 
 -   [React](https://reactjs.org/)
 -   [Styled Components](https://styled-components.com/)
@@ -42,7 +42,7 @@ yarn start
 yarn test
 ```
 
-##What I would add/change in this project
+## What I would add/change in this project
 
 -   Integrating tests
 -   Further splitting of the Heatmap table into smaller components
