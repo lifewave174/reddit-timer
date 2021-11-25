@@ -1,10 +1,6 @@
 const theme = {
     color: {
         lightest: '#ffffff',
-<<<<<<< HEAD
-        secondary: '#000000',
-=======
->>>>>>> 041efe10a6f128b9d74a893768da1a872557014d
         primary: '#93918f',
         secondary: '#000000',
         buttons: '#fdb755',
@@ -28,11 +24,7 @@ const theme = {
 
     heatmap: {
         size: {
-<<<<<<< HEAD
-            width: '1114',
-=======
             width: '1200',
->>>>>>> 041efe10a6f128b9d74a893768da1a872557014d
             daysHeaderWidth: '154',
             get timeHeaderWidth() {
                 this.width - this.daysHeaderWidth;
