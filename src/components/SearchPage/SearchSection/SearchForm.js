@@ -1,21 +1,8 @@
-import styled from 'styled-components';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import { H1, Button } from '../../styling/sharedstyles';
-
-const Search = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: auto;
-`;
-
-const Input = styled.input`
-    border: 1px solid #e6e6e6;
-    border-radius: 1px;
-    height: 36px;
-    width: 370px;
-    margin: 10px;
-`;
+import { H1, Button } from '../../../styling/sharedstyles';
+import { Search, Input } from './SearchPage.style';
 
 const SearchForm = ({ postSearch, onChange, onSubmit }) => {
     return (
@@ -32,6 +19,12 @@ const SearchForm = ({ postSearch, onChange, onSubmit }) => {
             </form>
         </Search>
     );
+};
+
+SearchForm.propTypes = {
+    postSearch: PropTypes.object.isRequired,
+    onChange: PropTypes.func.isRequired,
+    onSubmit: PropTypes.func.isRequired,
 };
 
 export default SearchForm;

@@ -9,7 +9,7 @@ const spin = keyframes`
 
 const LoadingSpinner = styled.div`
     border: 16px solid #f3f3f3; /* Light grey */
-    border-top: 16px solid #3498db; /* Blue */
+    border-top: 16px solid ${props => props.theme.color.buttons};
     border-radius: 50%;
     width: 120px;
     height: 120px;

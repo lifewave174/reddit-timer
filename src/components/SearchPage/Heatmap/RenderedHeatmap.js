@@ -1,14 +1,12 @@
 import React from 'react';
-import TimeZone from './TimeZone';
+import PropTypes from 'prop-types';
+
+import TimeZone from '../Timezone/TimeZone';
 import {
-    Table,
-    Tbody,
+    HeatmapTable,
     TimeHeader,
-    Th,
-    Tr,
     TCells,
     DaysHeader,
-    Thead,
     Td,
 } from './Heatmap.style';
 
@@ -21,9 +19,9 @@ const RenderedHeatmap = ({
 }) => {
     return (
         <>
-            <Table>
-                <Thead>
-                    <Tr>
+            <HeatmapTable>
+                <thead>
+                    <tr key="timerow">
                         <th></th>
                         {headerTime.map(time => {
                             return (
@@ -32,18 +30,18 @@ const RenderedHeatmap = ({
                                 </TimeHeader>
                             );
                         })}
-                    </Tr>
-                </Thead>
-                <Tbody>
+                    </tr>
+                </thead>
+                <tbody>
                     {days.map(day => {
                         return (
-                            <Tr key={day + 'row'}>
+                            <tr key={day + 'row'}>
                                 <DaysHeader key={day + 'header'}>
                                     {day}
                                 </DaysHeader>
                                 {hours.map(hour => {
                                     return (
-                                        <Td>
+                                        <Td key={hour + 'cell'}>
                                             <TCells
                                                 key={'posts-at' + hour}
                                                 onClick={() =>
@@ -62,14 +60,22 @@ const RenderedHeatmap = ({
                                         </Td>
                                     );
                                 })}
-                            </Tr>
+                            </tr>
                         );
                     })}
-                </Tbody>
-            </Table>
+                </tbody>
+            </HeatmapTable>
             <TimeZone />
         </>
     );
+};
+
+RenderedHeatmap.propTypes = {
+    days: PropTypes.array.isRequired,
+    getNumOfPostsPerHour: PropTypes.func.isRequired,
+    headerTime: PropTypes.array.isRequired,
+    hours: PropTypes.array.isRequired,
+    onHourSelect: PropTypes.func.isRequired,
 };
 
 export default RenderedHeatmap;

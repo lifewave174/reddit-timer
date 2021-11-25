@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
-import Loader from '../common/Loader';
-import RenderedHeatmap from './RenderedHeatmap';
-import PostTable from './PostTable';
-import TimeZone from './TimeZone';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-const Heatmap = ({ topPosts, isLoading, days }) => {
+import Loader from '../../common/Loader';
+import RenderedHeatmap from './RenderedHeatmap';
+
+const Heatmap = ({ topPosts, isLoading, days, onHourSelect, postsPerHour }) => {
+    //Here we define the header time seperately for formatting purposes
     const headerTime = [
         '12:00 am',
         '2:00 am',
@@ -20,6 +21,7 @@ const Heatmap = ({ topPosts, isLoading, days }) => {
         '10:00 pm',
     ];
 
+    //A new hours array is created here in order to match with the hours coming from the api
     let hours = [];
 
     function getHoursArray() {
@@ -31,6 +33,8 @@ const Heatmap = ({ topPosts, isLoading, days }) => {
 
     getHoursArray();
 
+    //creating a function to use during the table rendering in order to filter out posts based on the day and time
+
     const getNumOfPostsPerHour = (day, time) => {
         let numOfPosts = topPosts.filter(post => {
             return post.day === day && post.time === time;
@@ -39,17 +43,8 @@ const Heatmap = ({ topPosts, isLoading, days }) => {
         return numOfPosts.length;
     };
 
-    const [postsPerHour, setPostsPerHour] = useState([]);
-
-    const onHourSelect = (day, time) => {
-        let _postsPerHour = topPosts.filter(post => {
-            return post.day === day && post.time === time;
-        });
-        setPostsPerHour(_postsPerHour);
-    };
-
     return (
-        <div>
+        <section>
             {isLoading ? (
                 <Loader />
             ) : (
@@ -60,11 +55,19 @@ const Heatmap = ({ topPosts, isLoading, days }) => {
                     headerTime={headerTime}
                     hours={hours}
                     onHourSelect={onHourSelect}
+                    postsPerHour={postsPerHour}
                 />
             )}
-            <PostTable postsPerHour={postsPerHour} />
-        </div>
+        </section>
     );
+};
+
+Heatmap.propTypes = {
+    topPosts: PropTypes.array.isRequired,
+    isLoading: PropTypes.bool.isRequired,
+    days: PropTypes.array.isRequired,
+    onHourSelect: PropTypes.func.isRequired,
+    postsPerHour: PropTypes.array.isRequired,
 };
 
 export default Heatmap;
