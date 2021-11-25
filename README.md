@@ -46,3 +46,6 @@ yarn test
 
 -   Integrating tests
 -   Further splitting of the Heatmap table into smaller components
+
+*   Testing for cross-browser support and app performance
+*   Making the app fully responsive
