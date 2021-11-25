@@ -1,6 +1,6 @@
 # Reddit Timer App
 
-The [Redit Time app](https://reddit-timer-lifewave.netlify.app/) is an app that will tell you the best times to post on Reddit based on last year's data for a given Subreddit.
+The [Redit Timer app](https://reddit-timer-lifewave.netlify.app/) is an app that will tell you the best times to post on Reddit based on last year's data for a given Subreddit.
 
 ![Heatmap showing best times to post](./docs/heatmap.png)
 
