@@ -44,7 +44,7 @@ yarn test
 
 ## How to navigate this app
 
--   The app contains two pages. The first (Home) page will give you information about this app along with an image of the rendered heatmap.
+-   The app contains two pages. The first (Home) page will give you information about the app along with an image of the rendered heatmap.
 -   The Search page on the app lets you add a subreddit name, and then renders a dynamic heatmap based on the number of posts for the given subreddit on a given day and hour.
 -   Upon clicking on any of the boxes in the app, a list of posts published on that specific day and time is rendered.
 
@@ -52,7 +52,7 @@ yarn test
 
 I made some specific decisions while building this project, and found that certain techniques greatly improved the accessibility of this project, for me, as a developer.
 
--   **Using Styled Components**: At first, I wanted to use Scss as did not know how to use Styled Components. However, learning and implementing Styled Components greatly helped in my workflow especially to integrate CSS3 into React as both Styled Components and React follow a similar component based structure.
+-   **Using Styled Components**: At first, I wanted to use Scss as I did not know how to use Styled Components. However, learning and implementing Styled Components greatly helped me in my workflow especially to integrate CSS3 into React as both Styled Components and React follow a similar component based structure.
 -   **Splitting the project into sensible folders and components** Personally, I find code organization, down to the folder structure, an important part of the development process as it just makes everything...easy and readable.
 -   **Adding comments** Not much to say here... :P
 -   **Not splitting the Heatmap component into smaller components** This was a deliberate decision as it just made it more accessible for me to visualize the heatmap. However, were this app to grow in size, I would certainly consider a more detailed component structure.
