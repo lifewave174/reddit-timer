@@ -24,7 +24,7 @@ const Info = () => {
     return (
         <Section>
             <Infos>
-                <H2 id="how-it-works">How it works</H2>
+                <H2>How it works</H2>
                 <ul>
                     <li>
                         We find 500 top posts from the past year for a subreddit
@@ -33,12 +33,14 @@ const Info = () => {
                         The data is visualized in a heatmap grouped by weekday
                         and hour of the day
                     </li>
-                    <li>See immediately when to submit your reddit post</li>
+                    <li id="how-it-works">
+                        See immediately when to submit your reddit post
+                    </li>
                 </ul>
             </Infos>
             <Infos>
-                <H2 id="about">About</H2>
-                <p>
+                <H2>About</H2>
+                <p id="about">
                     The app was created during a course on profy.dev with the
                     goal to implement a pixel-perfect real-world application
                     with professional workflows and tolls like Kanban, ClickUp,

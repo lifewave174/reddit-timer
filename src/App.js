@@ -8,7 +8,7 @@ import theme from './styling/theme';
 import GlobalStyle from './styling/GlobalStyle';
 
 import Header from './components/common/Header';
-import SearchPage from './components/SearchPage/SearchPage';
+import SearchPage from './components/SearchPage/SearchSection/SearchPage';
 import Home from './components/Home';
 import NoMatch from './components/common/NoMatch';
 import Footer from './components/common/Footer';
@@ -26,7 +26,7 @@ function App() {
                             <Route exact path="/">
                                 <Home />
                             </Route>
-                            <Route path="/search/:subreddit">
+                            <Route path="/search/:subreddit" exact>
                                 <SearchPage />
                             </Route>
                             <Route>

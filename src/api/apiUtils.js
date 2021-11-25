@@ -2,9 +2,9 @@
 
 export async function handleResponse(response) {
     if (response.ok) {
-        const data = await response.json();
-        const _topPosts = data.data.children;
-        return _topPosts;
+        const _response = await response.json();
+        const data = _response.data;
+        return data;
     }
     if (response.status === 400) {
         const error = await response.text();
