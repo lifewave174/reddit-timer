@@ -1,8 +1,9 @@
 const theme = {
     color: {
         lightest: '#ffffff',
-        secondary: '#000000',
         primary: '#93918f',
+        secondary: '#000000',
+        buttons: '#fdb755',
     },
     font: {
         family: {
@@ -23,7 +24,7 @@ const theme = {
 
     heatmap: {
         size: {
-            width: '1114',
+            width: '1200',
             daysHeaderWidth: '154',
             get timeHeaderWidth() {
                 this.width - this.daysHeaderWidth;
@@ -52,6 +53,11 @@ const theme = {
         heatmapHover: '#1e2537',
         headerBackground: 'linear-gradient(to bottom, #fefefe, #e9e9e9)',
         highlighttColor: '#000000',
+    },
+    postsTable: {
+        color: '#0087FF',
+        size: '930',
+        borderColor: '#dddddd',
     },
 };
 

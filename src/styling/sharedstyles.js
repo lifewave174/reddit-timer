@@ -12,7 +12,7 @@ const Section = styled.section`
 
 const StyledLink = styled(Link)`
     text-decoration: none;
-    color: ${props => props.theme.color.primary};
+    color: ${props => props.inputColor || props.theme.color.primary};
 `;
 
 const MainWrapper = styled.section`
@@ -20,7 +20,7 @@ const MainWrapper = styled.section`
 `;
 
 const Button = styled.button`
-    background-color: #fdb755;
+    background-color: ${props => props.theme.color.buttons};
     color: white;
     text-transform: uppercase;
     height: 36px;
