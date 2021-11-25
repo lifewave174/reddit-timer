@@ -46,7 +46,7 @@ yarn test
 
 -   The app contains two pages. The first (Home) page will give you information about this app along with an image of the rendered heatmap.
 -   The Search page on the app lets you add a subreddit name, and then renders a dynamic heatmap based on the number of posts for the given subreddit on a given day and hour.
--   Upon clicking on any of the boxes in the app, a list of posts is rendered on that specific day and time.
+-   Upon clicking on any of the boxes in the app, a list of posts published on that specific day and time is rendered.
 
 ## Why I built the project this way
 
