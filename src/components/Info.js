@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Section } from '../styling/sharedstyles';
+import { Section, StyledLink } from '../styling/sharedstyles';
 
 const Infos = styled.article`
     width: 100%;
@@ -41,11 +41,27 @@ const Info = () => {
             <Infos>
                 <H2>About</H2>
                 <p id="about">
-                    The app was created during a course on profy.dev with the
-                    goal to implement a pixel-perfect real-world application
-                    with professional workflows and tolls like Kanban, ClickUp,
-                    Figma, GitHub, pull requests and code reviews. Click here
-                    for more information.
+                    The app was created during a course on{' '}
+                    <StyledLink
+                        as="a"
+                        href="https://profy.dev/"
+                        target="_blank"
+                        inputColor={'#0087FF'}
+                    >
+                        profy.dev
+                    </StyledLink>{' '}
+                    with the goal to implement a pixel-perfect real-world
+                    application with professional workflows and tools like
+                    Kanban, ClickUp, Figma, GitHub, pull requests and code
+                    reviews.{' '}
+                    <StyledLink
+                        as="a"
+                        href=" https://profy.dev/employers"
+                        target="_blank"
+                        inputColor={'#0087FF'}
+                    >
+                        Click here for more information.
+                    </StyledLink>
                 </p>
             </Infos>
         </Section>
